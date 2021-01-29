@@ -47,10 +47,11 @@ test: all
 	# and test addzid
 	go test -v ./cmd/addzid
 	# build and run on testdata/
-	go build -o ./zebrapack && ./zebrapack -write-schema testdata/my.z -file testdata/my.go && go test -v ./testdata
+	mkdir -p testdata && cp test/my.go testdata
+	go build -o ./zebrapack && ./zebrapack -write-schema testdata/my.z -file ./testdata/my.go && go test -v ./testdata
 	cd testdata && go generate && go test -v
-	./zebrapack -file testdata/my.go && go test -v ./testdata/my_gen_test.go ./testdata/my.go ./testdata/my_gen.go
-	./zebrapack -file testdata/my.go -msgp -o testdata/my_msgp_gen.go -method-prefix=MSGP -tests=false -io=false # test the -method-prefix flag
+	./zebrapack -file ./testdata/my.go && go test -v ./testdata/my_gen_test.go ./testdata/my.go ./testdata/my_gen.go
+	./zebrapack -file ./testdata/my.go -msgp -o testdata/my_msgp_gen.go -method-prefix=MSGP -tests=false -io=false # test the -method-prefix flag
 	./zebrapack -schema-to-go testdata/my.z > /tmp/remy.go && echo "func main() {}" >> /tmp/remy.go && go run /tmp/remy.go && rm /tmp/remy.go
 
 bench: all
