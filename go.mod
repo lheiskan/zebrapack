@@ -14,4 +14,16 @@ require (
 	golang.org/x/tools v0.1.0
 )
 
-replace github.com/glycerine/zebrapack => github.com/lheiskan/zebrapack v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack => github.com/lheiskan/zebrapack v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/cfg => github.com/lheiskan/zebrapack/cfg v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/gen => github.com/lheiskan/zebrapack/gen v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/parse => github.com/lheiskan/zebrapack/parse v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/printer => github.com/lheiskan/zebrapack/printer v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/zebra => github.com/lheiskan/zebrapack/zebra v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+
+replace github.com/glycerine/zebrapack => /Users/lauri/src/volument/go/src/github.com/lheiskan/zebrapack
+//replace github.com/glycerine/zebrapack/cfg => github.com/lheiskan/zebrapack/cfg v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/gen => github.com/lheiskan/zebrapack/gen v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/parse => github.com/lheiskan/zebrapack/parse v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/printer => github.com/lheiskan/zebrapack/printer v4.1.1-0.20181107023619-e955d028f9bf+incompatible
+//replace github.com/glycerine/zebrapack/zebra => github.com/lheiskan/zebrapack/zebra v4.1.1-0.20181107023619-e955d028f9bf+incompatible

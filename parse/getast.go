@@ -433,6 +433,14 @@ func (fs *FileSet) parseFieldList(fl *ast.FieldList) (out []gen.StructField, mis
 		}
 		popstate()
 	}
+
+	// Order fields based on zid
+	// this allows field lookups later using zid index
+	// All encoding/decoding should use zid indexes. as long as index remains the same it should be possible to change struct layout (field ordering)
+	sort.SliceStable(out, func(i, j int) bool {
+		return out[i].ZebraId < out[j].ZebraId
+	})
+
 	// check zidSet sequential from 0, no gaps, no duplicates
 	if len(zidSet) > 0 {
 		sort.Sort(zidSetSlice(zidSet))

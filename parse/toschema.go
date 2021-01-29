@@ -1,10 +1,7 @@
 package parse
 
 import (
-	"errors"
 	"fmt"
-	"sort"
-
 	"github.com/glycerine/zebrapack/gen"
 	"github.com/glycerine/zebrapack/zebra"
 	//"github.com/shurcooL/go-goon"
@@ -49,18 +46,6 @@ func TranslateToZebraSchema(path string, fs *FileSet) (*zebra.Schema, error) {
 				}
 				//fmt.Printf("\n in %v,  on field %#v ... fld='%#v'\n", tr.StructName, f, fld)
 				tr.Fields = append(tr.Fields, fld)
-			}
-
-			// Sort fields ascending by Zid
-			sort.SliceStable(tr.Fields, func(i, j int) bool {
-				return tr.Fields[i].Zid < tr.Fields[j].Zid
-			})
-
-			// Sanity check fields. There should be no gaps and no duplicates in zid. Numbering should start from 0
-			for i:=0;i<len(tr.Fields);i++ {
-				if int64(i) != tr.Fields[i].Zid {
-					return nil, errors.New(fmt.Sprintf("Bad schema: %s, has bad zip %d. zid:s should start from 0, increase with no gaps and have no duplicates.", tr.StructName, i))
-				}
 			}
 
 			structs[tr.StructName] = &tr
